@@ -3,31 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Watch GTV</title>
-  <link rel="stylesheet" href="./style.css">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play .m3u8 File in HTML5 video player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="stylesheet" href="style.css">
+	
 </head>
-
 <body>
-  <a style="position:	fixed;top:100px;width:100px;right:25rem;opacity:0.5;" href="">
-  <img style="height:85px;" src="https://i.postimg.cc/zGDVKJQ6/kadaltvku.png" alt="Made with KadalTV" />
-</a>
-<center>
-<!-- partial:index.partial.html -->
 
-<div class="container">
-  <iframe
-    width="720"
-    height="405"
-    src="https://liveaneviadev.mncnow.id/live/eds/GTV-2/sa_hls/GTV-2.m3u8"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-  ></iframe>
+   <!-- Include the hls.js library -->
 
-</div>
+<!-- Create a video element -->
+<video id="video" controls></video>
 
-</center>
-<!-- partial -->
-  
+<!-- Use hls.js to create a player and load the .m3u8 file -->
+
+<script>
+
+  var video = document.getElementById('video');
+  if(Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource('https://liveaneviadev.mncnow.id/live/eds/GTV-2/sa_hls/GTV-2.m3u8');
+    hls.attachMedia(video);
+    video.play();
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = 'https://liveaneviadev.mncnow.id/live/eds/GTV-2/sa_hls/GTV-2.m3u8';
+    video.addEventListener('loadedmetadata',function() {
+      video.play();
+    });
+  }
+ 
+</script>
+
 </body>
 </html>
+
+
+
