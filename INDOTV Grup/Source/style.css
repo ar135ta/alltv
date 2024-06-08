@@ -1,29 +1,4 @@
-/* 寫法一 */
-.container {
-  width: 100%;
-  aspect-ratio: 720 / 405;
-  background-color: #000000;
-}
 
-.container iframe {
-  width: 82%;
-  height: 80%;
-  vertical-align: top;
-}
-
-/* 寫法二 */
-.iframe-box {
-  width: 84%;
-  height: 84%;
-  aspect-ratio: 720 / 405;
-  vertical-align: top;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
 
 body {
     background: #222;
