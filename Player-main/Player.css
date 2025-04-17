@@ -32,7 +32,7 @@ html {
       display: inline-block;
       margin: 0 5px;
       color: #6a00de;
-      font-family: 'Quattrocento Sans', sans-serif;
+      font-family: 'Quattrocento Sans', sans-serif; font-size: 60px;
     }
 
     .loading-text span:nth-child(1) {
